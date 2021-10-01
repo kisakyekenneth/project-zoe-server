@@ -30,7 +30,7 @@ export class GroupCategoriesService {
     return await this.repository.save(data);
   }
 
-  async remove(id: number): Promise<void> {
+  async remove(id: any): Promise<void> {
     await this.repository.delete(id);
   }
 
