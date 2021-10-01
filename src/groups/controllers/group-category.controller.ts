@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
@@ -29,12 +30,12 @@ export class GroupCategoryController {
   }
 
   @Post()
-  async create(data: GroupCategory): Promise<GroupCategory> {
+  async create(@Body() data: GroupCategory): Promise<GroupCategory> {
     return await this.service.create(data);
   }
 
   @Put()
-  async update(data: GroupCategory): Promise<GroupCategory> {
+  async update(@Body() data: GroupCategory): Promise<GroupCategory> {
     return await this.service.update(data);
   }
 
@@ -44,7 +45,7 @@ export class GroupCategoryController {
   }
 
   @Delete(':id')
-  async remove(@Param('id') id: number): Promise<void> {
+  async remove(@Param('id') id: any): Promise<void> {
     await this.service.remove(id);
   }
 }
